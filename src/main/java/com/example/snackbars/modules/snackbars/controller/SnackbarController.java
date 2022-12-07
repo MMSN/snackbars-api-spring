@@ -12,7 +12,7 @@ import org.springframework.web.bind.annotation.*;
 import java.util.List;
 import java.util.Optional;
 
-@RequestMapping("/snackbar")
+@RequestMapping("/api")
 @RestController
 @ResponseBody
 public class SnackbarController {
@@ -24,7 +24,7 @@ public class SnackbarController {
         this.snackbarService = snackbarService;
     }
 
-    @GetMapping
+    @GetMapping("/snackbar")
     public ResponseEntity<List<Snackbar>> getAllPeople() {
         List<Snackbar> listSnackbar = snackbarService.findAll();
         if (listSnackbar.isEmpty()) return new ResponseEntity<>(HttpStatus.NO_CONTENT);
@@ -32,20 +32,20 @@ public class SnackbarController {
         return new ResponseEntity<>(listSnackbar, HttpStatus.OK);
     };
 
-    @GetMapping(path = "{id}")
+    @GetMapping(path = "/snackbar/{id}")
     public ResponseEntity<Snackbar> getSnackbarById(@PathVariable("id") Long id) {
         Optional<Snackbar> snackbar = snackbarService.findById(id);
         if (snackbar.isPresent()) return new ResponseEntity(snackbar, HttpStatus.OK);
         return new ResponseEntity<>(HttpStatus.BAD_REQUEST);
     }
 
-    @PostMapping
+    @PostMapping("/snackbar")
     public Snackbar addSnackbar(
             @NonNull @RequestBody Snackbar snackbar) {
         return snackbarService.saveSnackbar(snackbar);
     }
 
-    @PutMapping(path = "{id}")
+    @PutMapping(path = "/snackbar/{id}")
     public ResponseEntity updateSnackbarById(
             @PathVariable("id") Long id,
             @NonNull @RequestBody Snackbar snackbar) {
@@ -54,7 +54,7 @@ public class SnackbarController {
         return new ResponseEntity<>(HttpStatus.OK);
     }
 
-    @DeleteMapping(path = "{id}")
+    @DeleteMapping(path = "/snackbar/{id}")
     public ResponseEntity deletePersonById(@PathVariable("id") Long id) {
         Boolean resp = snackbarService.deleteSnackbarById(id);
         if (!resp) return new ResponseEntity<>(HttpStatus.BAD_REQUEST);

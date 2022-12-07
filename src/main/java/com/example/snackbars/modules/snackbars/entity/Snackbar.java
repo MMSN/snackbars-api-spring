@@ -3,7 +3,7 @@ package com.example.snackbars.modules.snackbars.entity;
 import javax.persistence.*;
 
 @Entity
-@Table(name = "snackbar")
+@Table(name = "snackbars")
 public class Snackbar {
 
     @Id
