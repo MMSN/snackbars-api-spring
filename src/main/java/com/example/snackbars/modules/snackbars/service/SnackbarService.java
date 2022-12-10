@@ -14,11 +14,11 @@ public class SnackbarService {
     @Autowired
     private SnackbarRepository snackbarRepository;
 
-    public List<Snackbar> findAll() {
+    public List<Snackbar> findAllSnackbars() {
         return snackbarRepository.findAll();
     }
 
-    public Optional<Snackbar> findById(long id) {
+    public Optional<Snackbar> findSnackbarById(long id) {
         return Optional.ofNullable(snackbarRepository.findById(id).orElse(null));
     }
 
@@ -27,7 +27,7 @@ public class SnackbarService {
     }
 
     public boolean updateSnackbarById(long id, Snackbar snackbar) {
-        Optional<Snackbar> oldSnackbar = this.findById(id);
+        Optional<Snackbar> oldSnackbar = this.findSnackbarById(id);
         if (oldSnackbar.isPresent()) {
             oldSnackbar.get().setSnackbar_name(snackbar.snackbar_name);
             snackbarRepository.save(oldSnackbar.get());
@@ -37,7 +37,7 @@ public class SnackbarService {
     }
 
     public boolean deleteSnackbarById(long id) {
-        Optional<Snackbar> oldSnackbar = this.findById(id);
+        Optional<Snackbar> oldSnackbar = this.findSnackbarById(id);
         if (oldSnackbar.isPresent()) {
             snackbarRepository.delete(oldSnackbar.get());
             return true;

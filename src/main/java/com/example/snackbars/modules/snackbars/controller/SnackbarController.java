@@ -25,8 +25,8 @@ public class SnackbarController {
     }
 
     @GetMapping("/snackbar")
-    public ResponseEntity<List<Snackbar>> getAllPeople() {
-        List<Snackbar> listSnackbar = snackbarService.findAll();
+    public ResponseEntity<List<Snackbar>> getAllSnackbars() {
+        List<Snackbar> listSnackbar = snackbarService.findAllSnackbars();
         if (listSnackbar.isEmpty()) return new ResponseEntity<>(HttpStatus.NO_CONTENT);
 
         return new ResponseEntity<>(listSnackbar, HttpStatus.OK);
@@ -34,7 +34,7 @@ public class SnackbarController {
 
     @GetMapping(path = "/snackbar/{id}")
     public ResponseEntity<Snackbar> getSnackbarById(@PathVariable("id") Long id) {
-        Optional<Snackbar> snackbar = snackbarService.findById(id);
+        Optional<Snackbar> snackbar = snackbarService.findSnackbarById(id);
         if (snackbar.isPresent()) return new ResponseEntity(snackbar, HttpStatus.OK);
         return new ResponseEntity<>(HttpStatus.BAD_REQUEST);
     }
