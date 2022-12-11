@@ -38,6 +38,13 @@ public class AddressController {
         return new ResponseEntity<>(HttpStatus.BAD_REQUEST);
     }
 
+    @GetMapping(path = "/snackbar/{id}/address")
+    public ResponseEntity<List<Address>> getAllAddressesBySnackBarId(@PathVariable("id") Long id) {
+        Optional<List<Address>> listAddresses = Optional.ofNullable(addressService.findAllAddressesBySnackBarId(id));
+        if (listAddresses.isPresent()) return new ResponseEntity(listAddresses, HttpStatus.OK);
+        return new ResponseEntity<>(HttpStatus.BAD_REQUEST);
+    }
+
     @PostMapping("/{id}/address")
     public Optional<Address> addAddress(
             @PathVariable("id") Long id,

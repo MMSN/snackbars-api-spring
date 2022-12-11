@@ -26,7 +26,7 @@ public class Address {
     @Column(name = "city_address")
     private String city_address;
 
-    @ManyToOne(fetch = FetchType.LAZY, optional = false)
+    @ManyToOne(fetch = FetchType.EAGER, optional = false)
     @JoinColumn(name = "snackbar_id", nullable = false)
     @OnDelete(action = OnDeleteAction.CASCADE)
     private Snackbar snackbar;

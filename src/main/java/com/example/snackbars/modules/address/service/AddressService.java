@@ -26,6 +26,14 @@ public class AddressService {
         return addressRepository.findById(id);
     }
 
+    public List<Address> findAllAddressesBySnackBarId (long id) {
+        Optional<Snackbar> snackbar = snackbarRepository.findById(id);
+        if (snackbar.isPresent()) {
+            return addressRepository.findAddressesBySnackbarId(id);
+        }
+        return null;
+    }
+
     public Optional<Address> saveAddress(long id, Address address) {
         Optional<Snackbar> snackbar = snackbarRepository.findById(id);
         if (snackbar.isPresent()) {
