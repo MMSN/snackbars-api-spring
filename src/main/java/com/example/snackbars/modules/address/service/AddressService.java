@@ -47,6 +47,18 @@ public class AddressService {
         return null;
     }
 
+    public boolean updateAddressById(long snack_id, long address_id, Address address) {
+        Optional<Snackbar> snackbar = snackbarRepository.findById(snack_id);
+        Optional<Address> oldAddress = addressRepository.findById(address_id);
+        if (snackbar.isPresent() && oldAddress.isPresent() && oldAddress.get().getSnackbar().getId() == snack_id) {
+            address.setId(address_id);
+            address.setSnackbar(snackbar.get());
+            addressRepository.save(address);
+            return true;
+        }
+        return false;
+    }
+
     public boolean deleteAddressById(long id) {
         Optional<Address> oldAddress = this.findAddressById(id);
         if (oldAddress.isPresent()) {

@@ -53,6 +53,16 @@ public class AddressController {
         return addressService.saveAddress(id, address);
     }
 
+    @PutMapping(path = "/snackbar/{snack_id}/address/{address_id}")
+    public ResponseEntity updateAddressById(
+            @PathVariable("snack_id") Long snack_id,
+            @PathVariable("address_id") Long address_id,
+            @NonNull @RequestBody Address address) {
+        Boolean resp = addressService.updateAddressById(snack_id, address_id, address);
+        if (!resp) return new ResponseEntity<>(HttpStatus.BAD_REQUEST);
+        return new ResponseEntity<>(HttpStatus.OK);
+    }
+
     @DeleteMapping(path = "/address/{id}")
     public ResponseEntity deletePersonById(@PathVariable("id") Long id) {
         Boolean resp = addressService.deleteAddressById(id);
