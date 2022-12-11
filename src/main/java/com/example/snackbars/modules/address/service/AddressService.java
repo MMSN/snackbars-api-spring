@@ -18,6 +18,9 @@ public class AddressService {
     @Autowired
     private SnackbarRepository snackbarRepository;
 
+    public AddressService() {
+    }
+
     public List<Address> findAllAddresses() {
         return addressRepository.findAll();
     }
@@ -28,7 +31,6 @@ public class AddressService {
 
     public List<Address> findAllAddressesBySnackBarId (long id) {
         Optional<Snackbar> snackbar = snackbarRepository.findById(id);
-        System.out.println(snackbar.get());
         if (snackbar.isPresent()) {
             return addressRepository.findAddressesBySnackbarId(id);
         }
@@ -43,5 +45,14 @@ public class AddressService {
             return Optional.of(address);
         }
         return null;
+    }
+
+    public boolean deleteAddressById(long id) {
+        Optional<Address> oldAddress = this.findAddressById(id);
+        if (oldAddress.isPresent()) {
+            addressRepository.delete(oldAddress.get());
+            return true;
+        }
+        return false;
     }
 }

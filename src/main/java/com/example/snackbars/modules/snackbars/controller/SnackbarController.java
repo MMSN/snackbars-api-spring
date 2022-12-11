@@ -2,7 +2,6 @@ package com.example.snackbars.modules.snackbars.controller;
 
 import com.example.snackbars.modules.snackbars.entity.Snackbar;
 import com.example.snackbars.modules.snackbars.service.SnackbarService;
-import com.sun.org.apache.xpath.internal.operations.Bool;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -30,7 +29,7 @@ public class SnackbarController {
         if (listSnackbar.isEmpty()) return new ResponseEntity<>(HttpStatus.NO_CONTENT);
 
         return new ResponseEntity<>(listSnackbar, HttpStatus.OK);
-    };
+    }
 
     @GetMapping(path = "/snackbar/{id}")
     public ResponseEntity<Snackbar> getSnackbarById(@PathVariable("id") Long id) {

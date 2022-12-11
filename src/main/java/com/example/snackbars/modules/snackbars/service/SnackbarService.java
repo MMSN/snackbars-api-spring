@@ -19,7 +19,7 @@ public class SnackbarService {
     }
 
     public Optional<Snackbar> findSnackbarById(long id) {
-        return Optional.ofNullable(snackbarRepository.findById(id).orElse(null));
+        return snackbarRepository.findById(id);
     }
 
     public Snackbar saveSnackbar(Snackbar snackbar) {

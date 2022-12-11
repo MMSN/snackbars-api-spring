@@ -53,4 +53,10 @@ public class AddressController {
         return addressService.saveAddress(id, address);
     }
 
+    @DeleteMapping(path = "/address/{id}")
+    public ResponseEntity deletePersonById(@PathVariable("id") Long id) {
+        Boolean resp = addressService.deleteAddressById(id);
+        if (!resp) return new ResponseEntity<>(HttpStatus.BAD_REQUEST);
+        return new ResponseEntity<>(HttpStatus.OK);
+    }
 }
