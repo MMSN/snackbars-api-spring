@@ -9,6 +9,9 @@ import java.util.List;
 
 public interface AddressRepository extends JpaRepository<Address, Long> {
 
-    @Query("SELECT p FROM addresses p WHERE p.snackbar_id IN (:ids)")
-    public List<Address> findAddressesBySnackbarId(@Param("ids") long id);
+    @Query(
+            //value = "SELECT * FROM addresses u WHERE u.id = 1"
+            value = "SELECT p FROM Address p WHERE p.snackbar.id=:id"
+    )
+    public List<Address> findAddressesBySnackbarId(@Param("id") long id);
 }

@@ -28,6 +28,7 @@ public class AddressService {
 
     public List<Address> findAllAddressesBySnackBarId (long id) {
         Optional<Snackbar> snackbar = snackbarRepository.findById(id);
+        System.out.println(snackbar.get());
         if (snackbar.isPresent()) {
             return addressRepository.findAddressesBySnackbarId(id);
         }
