@@ -1,7 +1,7 @@
-package com.example.snackbars.modules.address.service;
+package com.example.snackbars.modules.addresses.service;
 
-import com.example.snackbars.modules.address.entity.Address;
-import com.example.snackbars.modules.address.repository.AddressRepository;
+import com.example.snackbars.modules.addresses.entity.Address;
+import com.example.snackbars.modules.addresses.repository.AddressRepository;
 import com.example.snackbars.modules.snackbars.entity.Snackbar;
 import com.example.snackbars.modules.snackbars.repository.SnackbarRepository;
 import org.springframework.beans.factory.annotation.Autowired;

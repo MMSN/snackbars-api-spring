@@ -1,7 +1,7 @@
-package com.example.snackbars.modules.address.controller;
+package com.example.snackbars.modules.addresses.controller;
 
-import com.example.snackbars.modules.address.entity.Address;
-import com.example.snackbars.modules.address.service.AddressService;
+import com.example.snackbars.modules.addresses.entity.Address;
+import com.example.snackbars.modules.addresses.service.AddressService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;

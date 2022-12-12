@@ -1,4 +1,4 @@
-package com.example.snackbars.modules.address.entity;
+package com.example.snackbars.modules.addresses.entity;
 
 import com.example.snackbars.modules.snackbars.entity.Snackbar;
 import org.hibernate.annotations.OnDelete;

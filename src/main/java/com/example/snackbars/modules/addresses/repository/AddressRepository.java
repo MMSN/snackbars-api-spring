@@ -1,6 +1,6 @@
-package com.example.snackbars.modules.address.repository;
+package com.example.snackbars.modules.addresses.repository;
 
-import com.example.snackbars.modules.address.entity.Address;
+import com.example.snackbars.modules.addresses.entity.Address;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.query.Param;
