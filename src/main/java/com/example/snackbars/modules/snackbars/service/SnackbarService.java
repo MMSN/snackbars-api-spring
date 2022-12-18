@@ -29,7 +29,7 @@ public class SnackbarService {
     public boolean updateSnackbarById(long id, Snackbar snackbar) {
         Optional<Snackbar> oldSnackbar = this.findSnackbarById(id);
         if (oldSnackbar.isPresent()) {
-            oldSnackbar.get().setSnackbar_name(snackbar.snackbar_name);
+            oldSnackbar.get().setName_snackbar(snackbar.getName_snackbar());
             snackbarRepository.save(oldSnackbar.get());
             return true;
         }

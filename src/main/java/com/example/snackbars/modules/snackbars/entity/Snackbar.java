@@ -10,24 +10,33 @@ public class Snackbar {
     @GeneratedValue
     private long id;
 
-    @Column(name = "snackbar_name")
-    public String snackbar_name;
+    @Column(name = "name_snackbar")
+    private String name_snackbar;
 
-    //Getters
+    @Column(name = "logo_url_snackbar", nullable = true)
+    public String logo_url_snackbar;
+
     public long getId() {
         return id;
     }
 
-    public String getSnackbar_name() {
-        return snackbar_name;
-    }
-
-    //Setters
     public void setId(long id) {
         this.id = id;
     }
 
-    public void setSnackbar_name(String snackbar_name) {
-        this.snackbar_name = snackbar_name;
+    public String getName_snackbar() {
+        return name_snackbar;
+    }
+
+    public void setName_snackbar(String name_snackbar) {
+        this.name_snackbar = name_snackbar;
+    }
+
+    public String getLogo_url_snackbar() {
+        return logo_url_snackbar;
+    }
+
+    public void setLogo_url_snackbar(String logo_url_snackbar) {
+        this.logo_url_snackbar = logo_url_snackbar;
     }
 }
