@@ -42,7 +42,6 @@ public class AddressController {
     public ResponseEntity<List<Address>> getAllAddressesBySnackBarId(@PathVariable("id") Long id) {
         Optional<List<Address>> listAddresses = Optional.ofNullable(addressService.findAllAddressesBySnackBarId(id));
         if (listAddresses.isPresent()) return new ResponseEntity(listAddresses, HttpStatus.OK);
-        System.out.println("Mateus");
         return new ResponseEntity<>(HttpStatus.BAD_REQUEST);
     }
 
