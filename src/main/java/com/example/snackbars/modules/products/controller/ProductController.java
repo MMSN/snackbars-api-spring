@@ -5,6 +5,7 @@ import com.example.snackbars.modules.products.service.ProductService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.lang.NonNull;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
@@ -37,4 +38,17 @@ public class ProductController {
         return new ResponseEntity<>(HttpStatus.BAD_REQUEST);
     }
 
+    /*@GetMapping(path = "/address/{id}/products")
+    public ResponseEntity<List<Product>> getAllProductsByAddressId(@PathVariable("id") Long id) {
+        Optional<List<Product>> listProducts = Optional.ofNullable(productService.findAllProductsBySnackBarId(id));
+        if (listProducts.isPresent()) return new ResponseEntity(listProducts, HttpStatus.OK);
+        return new ResponseEntity<>(HttpStatus.BAD_REQUEST);
+    }*/
+
+    @PostMapping("/{id}/product")
+    public Product addProduct(
+            @PathVariable("id") Long id,
+            @NonNull @RequestBody Product product) {
+        return productService.saveProduct(id, product);
+    }
 }
