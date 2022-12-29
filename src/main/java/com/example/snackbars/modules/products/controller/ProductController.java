@@ -46,9 +46,11 @@ public class ProductController {
     }*/
 
     @PostMapping("/{id}/product")
-    public Product addProduct(
+    public ResponseEntity<Product> addProduct(
             @PathVariable("id") Long id,
             @NonNull @RequestBody Product product) {
-        return productService.saveProduct(id, product);
+        Optional<Product> savedProduct = Optional.ofNullable(productService.saveProduct(id, product));
+        if (savedProduct.isPresent()) return new ResponseEntity<>(HttpStatus.CREATED);
+        return new ResponseEntity<>(HttpStatus.BAD_REQUEST);
     }
 }
