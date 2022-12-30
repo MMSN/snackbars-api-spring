@@ -16,4 +16,5 @@ public class SnackBarsApplication {
 		SpringApplication.run(SnackBarsApplication.class, args);
 	}
 
+
 }

@@ -6,6 +6,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.lang.NonNull;
+import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
@@ -38,6 +39,7 @@ public class SnackbarController {
         return new ResponseEntity<>(HttpStatus.BAD_REQUEST);
     }
 
+    @PreAuthorize(value = "hasAuthority('ROLE_MODERATOR')")
     @PostMapping("/snackbar")
     public Snackbar addSnackbar(
             @NonNull @RequestBody Snackbar snackbar) {
