@@ -31,3 +31,10 @@ build/
 
 ### VS Code ###
 .vscode/
+
+### fly.io ###
+fly.toml
+
+### local env ###
+.env
+.DS_Store
